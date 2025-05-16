@@ -1,0 +1,145 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terry Writing</title>
+<style>
+/* Reset and Base Styles */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Segoe UI', sans-serif;
+background: #fafafa;
+color: #333;
+}
+
+/* Loading Screen */
+#loading {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: #111;
+color: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 2rem;
+letter-spacing: 3px;
+z-index: 9999;
+animation: fadeOut 1.5s ease 2s forwards;
+}
+
+@keyframes fadeOut {
+to {
+opacity: 0;
+visibility: hidden;
+}
+}
+
+/* Header */
+header {
+background: linear-gradient(135deg, #4b6cb7, #182848);
+color: white;
+text-align: center;
+padding: 2rem 1rem;
+}
+header h1 {
+font-size: 3rem;
+margin-bottom: 0.5rem;
+}
+header p {
+font-size: 1.2rem;
+}
+
+/* Navigation */
+nav {
+background: #eee;
+padding: 1rem;
+display: flex;
+justify-content: center;
+gap: 1rem;
+flex-wrap: wrap;
+}
+nav a {
+text-decoration: none;
+color: #333;
+font-weight: bold;
+padding: 0.5rem 1rem;
+border-radius: 5px;
+transition: 0.3s;
+}
+nav a:hover {
+background: #4b6cb7;
+color: white;
+}
+
+/* Main Content */
+main {
+max-width: 900px;
+margin: 2rem auto;
+padding: 0 1rem;
+}
+article {
+background: white;
+padding: 2rem;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+margin-bottom: 2rem;
+}
+article h2 {
+margin-bottom: 1rem;
+color: #4b6cb7;
+}
+article p {
+line-height: 1.7;
+white-space: pre-wrap;
+}
+
+footer {
+text-align: center;
+padding: 2rem;
+background: #222;
+color: #aaa;
+}
+</style>
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div id="loading">Terry Writing</div>
+
+<header>
+<h1>Terry Writing</h1>
+<p>Welcome to my personal collection of thoughts, poems, and stories.</p>
+</header>
+
+<nav>
+<a href="#writing1">Motiational writings</a>
+<a href="#writing2">Christianty writings</a>
+</nav>
+
+<main>
+<article id="writing1">
+<h2>Motivational writings</h2>
+<p>
+attempting to brigten the world by putting together a unch of words
+</p>
+</article>
+
+<article id="writing2">
+<h2>Christianty writins</h2>
+<p>
+Read the thoughts of a teenager influnced by the book of life
+</p>
+</article>
+</main>
+
+<footer>
+&copy; 2025 Terry Writing. All rights reserved.
+</footer>
+</html>
