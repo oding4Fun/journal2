@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Bible Journal</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+<style>
+body {
+font-family: 'Quicksand', sans-serif;
+margin: 0;
+padding: 0;
+background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+color: #2c3e50;
+scroll-behavior: smooth;
+}
+
+nav {
+background: #34495e;
+color: white;
+display: flex;
+justify-content: space-between;
+padding: 15px 30px;
+position: sticky;
+top: 0;
+z-index: 1000;
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+nav a {
+color: white;
+text-decoration: none;
+margin-left: 20px;
+font-size: 18px;
+transition: color 0.3s;
+}
+
+nav a:hover {
+color: #f1c40f;
+}
+
+.container {
+padding: 40px;
+}
+
+h1 {
+color: #2c3e50;
+font-size: 36px;
+}
+
+textarea, input {
+width: 100%;
+padding: 12px;
+margin-top: 12px;
+margin-bottom: 20px;
+font-size: 16px;
+border: 2px solid #ccc;
+border-radius: 8px;
+box-shadow: 2px 2px 6px rgba(0,0,0,0.05);
+}
+
+.section {
+display: none;
+animation: fadeIn 0.8s ease-in-out;
+}
+
+.active {
+display: block;
+}
+
+@keyframes fadeIn {
+from {opacity: 0;}
+to {opacity: 1;}
+}
+
+.verse-box {
+background: #ecf0f1;
+padding: 20px;
+border-left: 5px solid #3498db;
+margin-top: 20px;
+border-radius: 5px;
+}
+
+.daily-verse {
+font-style: italic;
+color: #555;
+}
+
+footer {
+text-align: center;
+padding: 20px;
+background: #34495e;
+color: white;
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div><strong>Bible Journal</strong></div>
+<div>
+<a href="file:///C:/Users/Terry/OneDrive/Documentos/Terrywrittings.html" target="_blank">Terry Writings</a>
+<a href="#" onclick="showSection('writings')">My Writings</a>
+<a href="https://www.biblegateway.com" target="_blank">Online Bible</a>
+<a href="#" onclick="showSection('about')">About Me</a>
+</div>
+</nav>
+
+<div class="container">
+
+<!-- Daily Verse -->
+<div class="verse-box">
+<h2>Daily Bible Verse</h2>
+<p class="daily-verse" id="dailyVerse">Loading verse...</p>
+<button onclick="generateVerse()">Get Another Verse</button>
+</div>
+
+<!-- Writings Section -->
+<div id="writings" class="section active">
+<h1>My Bible Writings</h1>
+
+<label for="verse">Bible Verse (e.g., Isaiah 41:10):</label>
+<input type="text" id="verse" placeholder="Enter verse to link" oninput="updateBibleLink()">
+
+<label for="entry">Reflection or Note:</label>
+<textarea id="entry" rows="8" placeholder="Write your thoughts here..."></textarea>
+
+<div id="bibleLink">
+<em>Enter a verse above to generate a Bible link.</em>
+</div>
+</div>
+
+<!-- About Me Section -->
+<div id="about" class="section">
+<h1>About Me</h1>
+<p>Hi! I'm Terry a kid heainly influnced by the bible in the teachings within it allow me to shine a light on the world and maybe even grow people faith!</p>
+<p>Some of my favorite verses include Jeremiah 29:11, Psalm 46:1, and Romans 8:28.</p>
+<p>You can customize this page with your faith journey, goals, and favorite Bible moments.</p>
+</div>
+
+</div>
+
+<footer>
+&copy; 2025 My Bible Journal | Made with faith
+</footer>
+
+<script>
+function showSection(id) {
+const sections = document.querySelectorAll(".section");
+sections.forEach(section => section.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+}
+
+function updateBibleLink() {
+const verse = document.getElementById("verse").value.trim();
+const bibleLink = document.getElementById("bibleLink");
+
+if (verse) {
+const encodedVerse = encodeURIComponent(verse);
+const url = `https://www.biblegateway.com/passage/?search=${encodedVerse}`;
+bibleLink.innerHTML = `<p><a href="${url}" target="_blank">Read ${verse} on BibleGateway</a></p>`;
+} else {
+bibleLink.innerHTML = "<em>Enter a verse above to generate a Bible link.</em>";
+}
+}
+
+const verses = [
+"For I know the plans I have for you... – Jeremiah 29:11",
+"The Lord is my shepherd; I shall not want. – Psalm 23:1",
+"I can do all things through Christ who strengthens me. – Philippians 4:13",
+"Be still, and know that I am God. – Psalm 46:10",
+"Do not fear, for I am with you... – Isaiah 41:10",
+"We know that in all things God works for the good... – Romans 8:28"
+];
+
+function generateVerse() {
+const verse = verses[Math.floor(Math.random() * verses.length)];
+document.getElementById("dailyVerse").textContent = verse;
+}
+
+// Load one verse on page load
+window.onload = generateVerse;
+</script>
+
+</body>
+</html>
